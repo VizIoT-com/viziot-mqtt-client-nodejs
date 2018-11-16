@@ -1,0 +1,25 @@
+{
+    "name": "vizoit-mqtt-client-nodejs",
+    "version": "1.0.0",
+    "description": "MQTT client node.js for web site VizIoT.com",
+    "license": "MIT",
+    "author": "Trunov Alexandr <viziot.com@gmail.com> (http://viziot.com)",
+    "main": "./ViziotMQTT.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "homepage": "http://VizIoT.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/VizIoT-com/vizoit-mqtt-client-nodejs"
+    },
+    "keywords": [
+        "mqtt client",
+        "viziot client",
+        "viziot mqtt client",
+        "viziot mqtt client for Node.JS"
+    ],
+    "dependencies": {
+        "mqtt": "^2.18.8"
+    }
+}
