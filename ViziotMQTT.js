@@ -10,7 +10,7 @@
 // ----------------------------------------------------------------------------------
 // License:       MIT
 // ==================================================================================
-const urlMQTTServer = 'mqtt://viziot.comdev:48651';
+const urlMQTTServer = 'mqtt://viziot.com:48651';
 let mqtt = require('mqtt');
 module.exports = class VizIoTMQTT {
 
