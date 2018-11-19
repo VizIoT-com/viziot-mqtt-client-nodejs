@@ -16,9 +16,7 @@ MQTT клиент node.js для сайта VizIoT.com позволяет отп
 - отправлять раз в минуту время, случайное число (от 1 до 100), и признак отправки данных.
 - управлять отправкой данных через сайт VizIoT.com.
 
-Для отправки данных пользователь должен:
-- укажет в настройках устройства что тип параметра "sendTestData" = "Вкл / Выкл 0-1" .
-- у устройства появится переключатель, который при включении или выключении отправляет на устройство 0 или 1.
+Для отправки данных на устройство пользователь должен укажет в настройках устройства что тип параметра "sendTestData" = "Вкл / Выкл 0-1". После этого на сайте у устройства появится переключатель, который при включении или выключении отправляет на устройство 0 или 1.
 
 ```javascript
 'use strict';
@@ -68,5 +66,37 @@ function sendDataToServer() {
 ```
 
 
-Описание класса
-=============
+<a name="api"></a>
+## Описание класса
+
+  * <a href="#constructor"><code><b>new viziotMQTT()</b></code></a>
+  * <a href="#connect"><code>viziotMQTT#<b>connect()</b></code></a>
+  * <a href="#sendDataToVizIoT"><code>viziotMQTT#<b>sendDataToVizIoT()</b></code></a>
+  * <a href="#startListenCommands"><code>viziotMQTT#<b>startListenCommands()</b></code></a>
+  
+
+<a name="constructor"></a>
+### Конструктор let viziotMQTTClient = new viziotMQTT(keyDevice, passDevice [, mqttHost])
+- keyDevice: ключ устройства с сайта VizIoT.com
+- passDevice: пароль устройства с сайта VizIoT.com
+- mqttHost: не обязательный параметр. По умолчанию "mqtt://viziot.com:48651"
+
+<a name="connect"></a>
+### Подключение к серверу viziotMQTTClient.connect([callback])
+- callback: не обязательный параметр. Если указать, то будет вызван, когда MQTT клиент подключится к серверу.
+
+<a name="sendDataToVizIoT"></a>
+### Отправка данных на сервер viziotMQTTClient.sendDataToVizIoT(data [, callback])
+- data: данные для отправки на сервер можно передавать строку в формате JSON или объект (ассоциативный массив).
+- callback: не обязательный параметр. Принимает два параметра:
+  - err: если есть ошибка, то будет указано ее текстовое описание, в противном случае undefined.
+  - isSend: при удачной отправки true при ошибке fasle.
+  
+<a name="startListenCommands"></a>
+### Обработчик получаемых команд viziotMQTTClient.startListenCommands(callback)
+- callback: если на устройство поступила команда, то вызывается функция callback с двумя параметрами:
+    - parameter - ключ команды или параметра
+    - value - значение 0 или 1
+
+
+
