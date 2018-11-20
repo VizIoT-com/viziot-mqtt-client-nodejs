@@ -1,4 +1,4 @@
-# vizoit-mqtt-client-nodejs
+# vizit-mqtt-client-nodejs
 
 <img src="/logo.png" alt="drawing" height="200"/>
 
@@ -7,7 +7,7 @@ MQTT клиент node.js для сайта VizIoT.com позволяет отп
 Установка
 =============
 
-`$ npm install vizoit-mqtt-client-nodejs --save`
+`$ npm install viziot-mqtt-client-nodejs --save`
 
 Пример использования
 =============
