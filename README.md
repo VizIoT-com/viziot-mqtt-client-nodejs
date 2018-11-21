@@ -1,4 +1,4 @@
-# vizit-mqtt-client-nodejs
+# viziot-mqtt-client-nodejs
 
 <img src="/logo.png" alt="drawing" height="200"/>
 
@@ -28,7 +28,7 @@ let sendTestData = 1;
 let idIntervalSend = 0;
 let intervalTime = 60000;
 
-let viziotMQTT = require('./ViziotMQTT.js');
+let viziotMQTT = require('viziot-mqtt-client-nodejs');
 let viziotMQTTClient = new viziotMQTT(keyDevice, passDevice);
 
 viziotMQTTClient.connect(function (isConnect) {

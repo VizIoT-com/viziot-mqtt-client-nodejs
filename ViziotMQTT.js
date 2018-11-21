@@ -199,7 +199,7 @@ module.exports = class VizIoTMQTT {
 			callback(errorsVizIoT[5], false);
 			return false;
 		}
-		this.mqttClient.publish(this.topicForPublish, packet, function (err) {
+		this.mqttClient.publish(this.topicForPublish, packet, {'qos': 1}, function (err) {
 			if (err) {
 				callback(err, false);
 			}else{

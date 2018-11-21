@@ -1,6 +1,6 @@
 {
     "name": "viziot-mqtt-client-nodejs",
-    "version": "1.0.4",
+    "version": "1.0.7",
     "description": "MQTT client node.js for web site VizIoT.com",
     "license": "MIT",
     "author": "Trunov Alexandr <viziot.com@gmail.com> (http://viziot.com)",
