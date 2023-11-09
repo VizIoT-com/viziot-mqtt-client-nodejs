@@ -2,25 +2,25 @@
 
 <img src="/logo.png" alt="drawing" height="200"/>
 
-MQTT клиент node.js для сайта VizIoT.com позволяет отправлять данный с устройств на сервер VizIoT.com и получать новые значения параметров для управления устройством.
+The node.js MQTT client for VizIoT.com allows you to send data from devices to the VizIoT.com server and get new parameter values to control the device.
 
-Установка
+Installation
 =============
 
 `$ npm install viziot-mqtt-client-nodejs --save`
 
-Пример использования
+Example of use
 =============
 
-Пример подключается к брокеру и позволяет:
-- отправлять раз в минуту время, случайное число (от 1 до 100), и признак отправки данных.
-- управлять отправкой данных через сайт VizIoT.com.
+The example connects to the broker and allows you to:
+- send once a minute the time, a random number (from 1 to 100), and an indication of the data being sent.
+- manage data sending via VizIoT.com website.
 
-Для отправки данных на устройство пользователь должен укажет в настройках устройства что тип параметра "sendTestData" = "Вкл / Выкл 0-1". После этого на сайте у устройства появится переключатель, который при включении или выключении отправляет на устройство 0 или 1.
+To send data to the device, the user must specify in the device settings that the type of parameter "sendTestData" = "On / Off 0-1". After that, the device will have a switch on the website that sends 0 or 1 to the device when switched on or off.
 
 ```javascript
 'use strict';
-//#ключ и пароль устройства
+//#device key and password
 let keyDevice = '________________';
 let passDevice = '____________________';
 
@@ -67,7 +67,7 @@ function sendDataToServer() {
 
 
 <a name="api"></a>
-## Описание класса
+## Class Description
 
   * <a href="#constructor"><code><b>new viziotMQTT()</b></code></a>
   * <a href="#connect"><code>viziotMQTT#<b>connect()</b></code></a>
@@ -76,27 +76,27 @@ function sendDataToServer() {
   
 
 <a name="constructor"></a>
-### Конструктор let viziotMQTTClient = new viziotMQTT(keyDevice, passDevice [, mqttHost])
-- keyDevice: ключ устройства с сайта VizIoT.com
-- passDevice: пароль устройства с сайта VizIoT.com
-- mqttHost: не обязательный параметр. По умолчанию "mqtt://viziot.com:48651"
+### Constructor let viziotMQTTClient = new viziotMQTT(keyDevice, passDevice [, mqttHost])
+- keyDevice: device key from VizIoT.com
+- passDevice: device password from VizIoT.com
+- mqttHost: optional parameter. Default is "mqtt://viziot.com:48651"
 
 <a name="connect"></a>
-### Подключение к серверу viziotMQTTClient.connect([callback])
-- callback: не обязательный параметр. Если указать, то будет вызван, когда MQTT клиент подключится к серверу.
+### Connecting to the server viziotMQTTClient.connect([callback])
+- callback: optional parameter. If specified, it will be called when the MQTT client connects to the server.
 
 <a name="sendDataToVizIoT"></a>
-### Отправка данных на сервер viziotMQTTClient.sendDataToVizIoT(data [, callback])
-- data: данные для отправки на сервер можно передавать строку в формате JSON или объект (ассоциативный массив).
-- callback: не обязательный параметр. Принимает два параметра:
-  - err: если есть ошибка, то будет указано ее текстовое описание, в противном случае undefined.
-  - isSend: при удачной отправки true при ошибке fasle.
+### Sending data to the server viziotMQTTClient.sendDataToVizIoT(data [, callback])
+- data: data to be sent to the server can be a string in JSON format or an object (associative array).
+- callback: optional parameter. Accepts two parameters:
+  - err: if there is an error, its text description will be specified, otherwise undefined.
+  - isSend: on a successful send true on a fasle error.
   
 <a name="startListenCommands"></a>
-### Обработчик получаемых команд viziotMQTTClient.startListenCommands(callback)
-- callback: если на устройство поступила команда, то вызывается функция callback с двумя параметрами:
-    - parameter - ключ команды или параметра
-    - value - значение 0 или 1
+### Handler of received commands viziotMQTTClient.startListenCommands(callback)
+- callback: if the device receives a command, the callback function with two parameters is called:
+    - parameter - command or parameter key
+      - value - value 0 or 1
 
 
 
