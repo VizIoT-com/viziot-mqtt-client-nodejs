@@ -1,25 +1,69 @@
 {
-    "name": "viziot-mqtt-client-nodejs",
-    "version": "1.0.7",
-    "description": "MQTT client node.js for web site VizIoT.com",
-    "license": "MIT",
-    "author": "Trunov Alexandr <viziot.com@gmail.com> (http://viziot.com)",
-    "main": "./ViziotMQTT.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "homepage": "http://VizIoT.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/VizIoT-com/viziot-mqtt-client-nodejs"
-    },
-    "keywords": [
-        "mqtt client",
-        "viziot client",
-        "viziot mqtt client",
-        "viziot mqtt client for Node.JS"
-    ],
-    "dependencies": {
-        "mqtt": "^2.18.8"
+  "name": "viziot-mqtt-client-nodejs",
+  "version": "2.0.0",
+  "description": "Promise-based MQTT client for the VizIoT.com IoT platform, written in TypeScript with first-class support for both TypeScript and JavaScript (CommonJS/ESM) projects.",
+  "license": "MIT",
+  "author": "Trunov Alexandr <viziot.com@gmail.com> (http://viziot.com)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
+  },
+  "files": [
+    "dist",
+    "logo.png"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "homepage": "http://VizIoT.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VizIoT-com/viziot-mqtt-client-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VizIoT-com/viziot-mqtt-client-nodejs/issues"
+  },
+  "keywords": [
+    "mqtt",
+    "mqtt-client",
+    "iot",
+    "viziot",
+    "typescript"
+  ],
+  "dependencies": {
+    "mqtt": "^5.16.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.3",
+    "@vitest/coverage-v8": "^5.0.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.7",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0",
+    "vitest": "^5.0.1"
+  }
 }
